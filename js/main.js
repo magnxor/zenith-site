@@ -116,6 +116,43 @@
     counters.forEach(animateCounter);
   }
 
+  /* ---------- Destaque da seção ativa no menu ---------- */
+  var sectionLinks = {};
+  navLinks.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+    if (id && !link.classList.contains("btn")) {
+      sectionLinks[id] = link;
+    }
+  });
+
+  var sections = Object.keys(sectionLinks)
+    .map(function (id) {
+      return document.getElementById(id);
+    })
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window && sections.length) {
+    var activeObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          var link = sectionLinks[entry.target.id];
+          if (!link) return;
+          if (entry.isIntersecting) {
+            Object.values(sectionLinks).forEach(function (l) {
+              l.classList.remove("active");
+            });
+            link.classList.add("active");
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+
+    sections.forEach(function (section) {
+      activeObserver.observe(section);
+    });
+  }
+
   /* ---------- Formulário de contato ----------
      Sem backend: monta um e-mail pré-preenchido (mailto).
      AJUSTE: troque o endereço abaixo pelo e-mail real da zenith

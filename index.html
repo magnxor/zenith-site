@@ -8,6 +8,17 @@
   <meta property="og:title" content="zenith — Energia no ponto mais alto" />
   <meta property="og:description" content="Projetos elétricos e consultoria em eficiência energética para empresas que querem segurança, conformidade e contas de energia cada vez menores." />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="zenith" />
+  <!-- AJUSTE: quando o domínio final estiver definido, troque por URL absoluta (https://...) -->
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="zenith — energia no ponto mais alto" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="zenith — Energia no ponto mais alto" />
+  <meta name="twitter:description" content="Projetos elétricos e consultoria em eficiência energética." />
+  <meta name="twitter:image" content="assets/og-image.jpg" />
   <meta name="theme-color" content="#070b1e" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
 
@@ -27,7 +38,9 @@
   }
   </script>
 </head>
-<body>
+<body id="topo">
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <!-- ====== CAMADAS DE FUNDO (maximalismo da marca) ====== -->
   <div class="bg-layer" aria-hidden="true"></div>
@@ -38,7 +51,7 @@
   <header class="nav" id="nav">
     <div class="nav__inner container">
       <a href="#topo" class="nav__logo" aria-label="zenith — voltar ao topo">
-        <img src="assets/logo.svg" alt="zenith" height="30" />
+        <img src="assets/logo.svg" alt="zenith" width="130" height="30" />
       </a>
 
       <nav class="nav__links" id="navLinks" aria-label="Navegação principal">
@@ -49,13 +62,13 @@
         <a href="#contato" class="btn btn--small nav__cta">Solicitar proposta</a>
       </nav>
 
-      <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <button class="nav__burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main id="topo">
+  <main id="conteudo">
 
     <!-- ====== HERO ====== -->
     <section class="hero">
@@ -359,16 +372,16 @@
           <form class="contato__form reveal" style="--d:.12s" id="formContato" novalidate>
             <div class="field">
               <label for="nome">Nome</label>
-              <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+              <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" required />
             </div>
             <div class="field-row">
               <div class="field">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="voce@empresa.com" required />
+                <input type="email" id="email" name="email" placeholder="voce@empresa.com" autocomplete="email" required />
               </div>
               <div class="field">
                 <label for="telefone">Telefone</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" />
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="tel" />
               </div>
             </div>
             <div class="field">
@@ -400,7 +413,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <img src="assets/logo.svg" alt="zenith" height="34" />
+        <img src="assets/logo.svg" alt="zenith" width="147" height="34" />
         <p>Projetos elétricos e consultoria<br />em eficiência energética.</p>
       </div>
 

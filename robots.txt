@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# AJUSTE: quando o domínio final estiver definido, adicione aqui:
+# Sitemap: https://www.seudominio.com.br/sitemap.xml

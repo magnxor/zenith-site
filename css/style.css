@@ -13,7 +13,7 @@
   --gray-brand: #5c6070;
   --text: #eef1ff;
   --text-muted: rgba(238, 241, 255, 0.64);
-  --text-faint: rgba(238, 241, 255, 0.4);
+  --text-faint: rgba(238, 241, 255, 0.56);
 
   --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
   --glass-border: rgba(255, 255, 255, 0.14);
@@ -105,6 +105,28 @@ ol {
   color: var(--yellow);
 }
 
+/* Link "pular para o conteúdo" — acessibilidade (visível só via teclado) */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 200;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--navy-900);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transform: translateY(-200%);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--text);
+}
+
 /* ============================================================
    CAMADAS DE FUNDO — maximalismo da marca
    ============================================================ */
@@ -194,6 +216,7 @@ ol {
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.02em;
+  text-wrap: balance;
   margin-bottom: 26px;
 }
 
@@ -353,6 +376,15 @@ ol {
   transform: scaleX(1);
 }
 
+/* link da seção atualmente visível (controlado pelo JS) */
+.nav__links a:not(.btn).active {
+  color: var(--text);
+}
+
+.nav__links a:not(.btn).active::after {
+  transform: scaleX(1);
+}
+
 .nav__cta {
   background: var(--yellow);
   color: var(--navy-900);
@@ -399,6 +431,7 @@ ol {
    ============================================================ */
 .hero {
   position: relative;
+  min-height: 100vh;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -487,6 +520,7 @@ ol {
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.03em;
+  text-wrap: balance;
   margin-bottom: 26px;
 }
 
